@@ -22,6 +22,8 @@
             <div>
                 <h5 class="mb-2 d-inline">Categoria: </h5>
                 <p class="mx-2 badge rounded-pill text-bg-info">{{ $categories[$product->category_id - 1]->label }}</p>
+                <h5 class="mb-2">Prezzo: </h5>
+                <p>{{ $product->price }} €</p>
                 <br>
                 <a href="{{ route('home') }}" class="btn btn-primary mt-3">Torna alla lista</a>
             </div>
