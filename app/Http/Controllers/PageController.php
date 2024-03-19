@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 
 use App\Models\Product;
+use Symfony\Component\VarDumper\VarDumper;
 
 class PageController extends Controller
 {
@@ -16,9 +17,10 @@ class PageController extends Controller
     return view('home', compact('featured_products', "categories"));
   }
 
-  public function show(Product $product)
+  public function show($id)
   {
+    $product = Product::find($id);
     $categories = Category::all();
-    return view("admin.events.show", compact("event", "tags"));
+    return view("show", compact("product", "categories"));
   }
 }

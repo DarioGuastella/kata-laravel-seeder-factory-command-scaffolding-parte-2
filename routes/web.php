@@ -19,3 +19,5 @@ use Illuminate\Support\Facades\Route;
 // })->name('home');
 
 Route::get('/', [PageController::class, 'index'])->name('home');
+
+Route::get('/{id}', [PageController::class, 'show'])->name('show');

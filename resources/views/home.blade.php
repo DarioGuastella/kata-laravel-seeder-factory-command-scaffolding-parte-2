@@ -18,23 +18,23 @@
             @foreach ($featured_products as $featured_product)
                 <div class="col-md-4">
                     <div class="card">
-                        <div class="card-header">{{ $featured_product->id }}</div>
-                        @if ($featured_product->image)
-                            <img src="{{ $featured_product->image }}" class="card-img-top"
-                                alt="{{ $featured_product->name }}">
-                        @endif
+                        <div class="card-header"># {{ $featured_product->id }}</div>
+                        <img src="{{ $featured_product->image }}" class="card-img-top"
+                            alt="{{ $featured_product->name }}">
                         <div class="card-body">
-                            <h5>Nome prodotto: </h5>{{ $featured_product->name }}
-                        </div>
-                        <div class="card-body">
-                            <h5>Descrizione: </h5>{{ $featured_product->description }}
-                        </div>
-
-                        <div class="card-body">
-                            <h5>ISBN: </h5>{{ $featured_product->isbn }}
-                        </div>
-                        <div class="card-body">
-                            <h5>Prezzo: </h5>{{ $featured_product->price }} €
+                            <h5 class="mb-2">Nome prodotto: </h5>
+                            <p>{{ $featured_product->name }}</p>
+                            <h5 class="mb-2">Descrizione: </h5>
+                            <p>{{ $featured_product->description }}</p>
+                            <h5 class="mb-2 d-inline">Categoria: </h5>
+                            <p class="mx-2 badge rounded-pill text-bg-info">
+                                {{ $categories[$featured_product->category_id - 1]->label }}</p>
+                            <h5 class="mb-2">ISBN: </h5>
+                            <p>{{ $featured_product->isbn }}</p>
+                            <h5 class="mb-2">Prezzo: </h5>
+                            <p>{{ $featured_product->price }} €</p>
+                            <a href="{{ route('show', $featured_product->id) }}"
+                                class="btn btn-primary mx-2 mb-2">Mostra dettagli</a>
                         </div>
                     </div>
                 </div>
