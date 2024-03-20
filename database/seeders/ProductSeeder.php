@@ -19,34 +19,35 @@ class ProductSeeder extends Seeder
    */
   public function run(Faker $faker)
   {
-    $category_ids = Category::all()->pluck('id');
+    // $category_ids = Category::all()->pluck('id');
 
-    // 95 Prodotti non featured
-    for ($i = 0; $i < 95; $i++) {
-      $product = new Product;
-      $product->category_id = $faker->randomElement($category_ids);
-      $product->name = $faker->words(2, true);
-      $product->description = $faker->paragraphs(4, true);
-      $product->image = $faker->imageUrl(640, 480, 'cafè', true);
-      // isbn concatenato per evitare errore generazione fake;
-      $product->isbn = $faker->randomNumber(7, true) . $faker->randomNumber(6, true);
-      $product->price = $faker->randomFloat(2, 20, 100);
-      $product->featured = 0;
-      $product->save();
-    }
+    // // 95 Prodotti non featured
+    // for ($i = 0; $i < 95; $i++) {
+    //   $product = new Product;
+    //   $product->category_id = $faker->randomElement($category_ids);
+    //   $product->name = $faker->words(2, true);
+    //   $product->description = $faker->paragraphs(4, true);
+    //   $product->image = $faker->imageUrl(640, 480, 'cafè', true);
+    //   // isbn concatenato per evitare errore generazione fake;
+    //   $product->isbn = $faker->randomNumber(7, true) . $faker->randomNumber(6, true);
+    //   $product->price = $faker->randomFloat(2, 20, 100);
+    //   $product->featured = 0;
+    //   $product->save();
+    // }
 
-    // 5 Prodotti featured
-    for ($i = 0; $i < 5; $i++) {
-      $product = new Product;
-      $product->category_id = $faker->randomElement($category_ids);
-      $product->name = $faker->words(2, true);
-      $product->description = $faker->paragraphs(4, true);
-      $product->image = $faker->imageUrl(640, 480, 'cafè', true);
-      // isbn concatenato per evitare errore generazione fake;
-      $product->isbn = $faker->randomNumber(7, true) . $faker->randomNumber(6, true);
-      $product->price = $faker->randomFloat(2, 20, 100);
-      $product->featured = 1;
-      $product->save();
-    }
+    // // 5 Prodotti featured
+    // for ($i = 0; $i < 5; $i++) {
+    //   $product = new Product;
+    //   $product->category_id = $faker->randomElement($category_ids);
+    //   $product->name = $faker->words(2, true);
+    //   $product->description = $faker->paragraphs(4, true);
+    //   $product->image = $faker->imageUrl(640, 480, 'cafè', true);
+    //   // isbn concatenato per evitare errore generazione fake;
+    //   $product->isbn = $faker->randomNumber(7, true) . $faker->randomNumber(6, true);
+    //   $product->price = $faker->randomFloat(2, 20, 100);
+    //   $product->featured = 1;
+    //   $product->save();
+    // }
+    Product::factory()->count(100)->create();
   }
 }
